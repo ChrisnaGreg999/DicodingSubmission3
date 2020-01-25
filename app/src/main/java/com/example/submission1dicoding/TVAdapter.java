@@ -38,7 +38,7 @@ public class TVAdapter extends RecyclerView.Adapter<TVAdapter.ListViewHolder> {
     public void onBindViewHolder(@NonNull final TVAdapter.ListViewHolder holder, int position) {
         TVShow tvShow = listTV.get(position);
         Glide.with(holder.itemView.getContext())
-                .load(tvShow.getFoto())
+                .load("https://image.tmdb.org/t/p/w500"+tvShow.getFoto())
                 .apply(new RequestOptions().override(1000, 1000))
                 .into(holder.imgPhoto);
         holder.txtName.setText(tvShow.getNama());

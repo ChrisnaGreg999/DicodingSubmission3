@@ -38,11 +38,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ListViewHo
     public void onBindViewHolder(@NonNull final ListViewHolder holder, int position) {
         Movies movies = listMovies.get(position);
         Glide.with(holder.itemView.getContext())
-                .load(movies.getFoto())
+                .load("https://image.tmdb.org/t/p/w500"+movies.getFoto())
                 .apply(new RequestOptions().override(1000, 1000))
                 .into(holder.imgPhoto);
-        holder.txtName.setText(movies.getNama());
         holder.txtDescription.setText(movies.getDeskripsi());
+        holder.txtName.setText(movies.getNama());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

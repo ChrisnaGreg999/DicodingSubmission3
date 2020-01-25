@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">Submission 1 Dicoding</string>
+    <string name="app_name">Submission 3 Dicoding</string>
     <string name="name_movies">Film Name</string>
     <string name="lorem">Film Description</string>
+    <string name="bahasa">en-US</string>
     
     <string name="date">Release Date</string>
     <string name="desc">Description</string>
-    <string name="cast">Cast</string>
+    <string name="cast">Language</string>
 
     <string name="title">Title</string>
 

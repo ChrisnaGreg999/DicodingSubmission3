@@ -4,44 +4,37 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class TVShow implements Parcelable {
-    private String nama;
-    private String deskripsi;
-    private String cast;
-    private String date;
-    private int foto;
+    private String name;
+    private String overview;
+    private String first_air_date;
+    private String poster_path;
 
     public TVShow() {
     }
 
     public String getDate() {
-        return date;
+        return first_air_date;
     }
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(String first_air_date) {
+        this.first_air_date = first_air_date;
     }
-    public String getCast() {
-        return cast;
+    public String getFoto() {
+        return poster_path;
     }
-    public void setCast(String cast) {
-        this.cast = cast;
-    }
-    public int getFoto() {
-        return foto;
-    }
-    public void setFoto(int foto) {
-        this.foto = foto;
+    public void setFoto(String poster_path) {
+        this.poster_path = poster_path;
     }
     public String getNama() {
-        return nama;
+        return name;
     }
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setNama(String name) {
+        this.name = name;
     }
     public String getDeskripsi() {
-        return deskripsi;
+        return overview;
     }
-    public void setDeskripsi(String deskripsi) {
-        this.deskripsi = deskripsi;
+    public void setDeskripsi(String overview) {
+        this.overview = overview;
     }
 
     @Override
@@ -51,19 +44,17 @@ public class TVShow implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nama);
-        dest.writeString(deskripsi);
-        dest.writeString(cast);
-        dest.writeString(date);
-        dest.writeInt(foto);
+        dest.writeString(name);
+        dest.writeString(overview);
+        dest.writeString(first_air_date);
+        dest.writeString(poster_path);
     }
 
     protected TVShow(Parcel in) {
-        nama = in.readString();
-        deskripsi = in.readString();
-        cast = in.readString();
-        date = in.readString();
-        foto = in.readInt();
+        name = in.readString();
+        overview = in.readString();
+        first_air_date = in.readString();
+        poster_path = in.readString();
     }
 
     public static final Creator<TVShow> CREATOR = new Creator<TVShow>() {

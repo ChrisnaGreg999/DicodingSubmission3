@@ -2,7 +2,6 @@ package com.example.submission1dicoding;
 
 
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,9 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -24,6 +29,7 @@ public class MoviesFragment extends Fragment {
 
     private ArrayList<Movies> list = new ArrayList<>();
     private RecyclerView rvMovies;
+    private ProgressBar progressBar;
 
     public MoviesFragment() {
         // Required empty public constructor
@@ -36,38 +42,48 @@ public class MoviesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_movies, container, false);
 
+        progressBar = view.findViewById(R.id.progressBar);
+        showLoading(true);
         rvMovies = view.findViewById(R.id.rv_movie);
         rvMovies.setHasFixedSize(true);
 
-        list.addAll(getListMovies());
         showRecyclerList(view);
 
         return view;
     }
 
-    public ArrayList<Movies> getListMovies() {
-        String[] dataName = getResources().getStringArray(R.array.data_name);
-        String[] dataDescription = getResources().getStringArray(R.array.data_description);
-        String[] dataDate = getResources().getStringArray(R.array.data_date);
-        String[] dataCast = getResources().getStringArray(R.array.data_cast);
-        TypedArray dataPhoto = getResources().obtainTypedArray(R.array.data_photo);
-        ArrayList<Movies> listMovies = new ArrayList<>();
-        for (int i = 0; i < dataName.length; i++) {
-            Movies movies = new Movies();
-            movies.setNama(dataName[i]);
-            movies.setDeskripsi(dataDescription[i]);
-            movies.setCast(dataCast[i]);
-            movies.setDate(dataDate[i]);
-            movies.setFoto(dataPhoto.getResourceId(i, -1));
-            listMovies.add(movies);
-        }
-        return listMovies;
-    }
-
     private void showRecyclerList(final View view){
         rvMovies.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        MoviesAdapter listMoviesAdapter = new MoviesAdapter(list);
+        final MoviesAdapter listMoviesAdapter = new MoviesAdapter(list);
         rvMovies.setAdapter(listMoviesAdapter);
+
+        ApiInterface apiService = ApiClientDetails.getClient().create(ApiInterface.class);
+        Call<ResultMovies> result = apiService.getResponseMovie();
+        result.enqueue(new Callback<ResultMovies>() {
+            @Override
+            public void onResponse(Call<ResultMovies> call, Response<ResultMovies> response) {
+                List<Movies> listMovies = new ArrayList<>();
+                listMovies = response.body().getResults();
+                for(int i=0;i<listMovies.size();i++)
+                {
+                    Movies data = new Movies();
+                    data.setNama(listMovies.get(i).getNama());
+                    data.setDate(listMovies.get(i).getDate());
+                    data.setDeskripsi(listMovies.get(i).getDeskripsi());
+                    data.setFoto(listMovies.get(i).getFoto());
+                    list.add(data);
+                }
+                listMoviesAdapter.notifyDataSetChanged();
+                showLoading(false);
+            }
+
+            @Override
+            public void onFailure(Call<ResultMovies> call, Throwable t) {
+                Toast.makeText(view.getContext(),"Kesalahan Jaringan",Toast.LENGTH_SHORT).show();
+                showLoading(false);
+            }
+        });
+
 
         listMoviesAdapter.setOnItemClickCallback(new MoviesAdapter.OnItemClickCallback() {
             @Override
@@ -81,6 +97,14 @@ public class MoviesFragment extends Fragment {
         Intent i = new Intent(view.getContext(), DetailMovies.class);
         i.putExtra(DetailMovies.EXTRA_MOVIES, movies);
         startActivity(i);
+    }
+
+    private void showLoading(Boolean state) {
+        if (state) {
+            progressBar.setVisibility(View.VISIBLE);
+        } else {
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
 }
