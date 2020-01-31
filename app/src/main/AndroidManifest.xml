@@ -10,21 +10,31 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".DetailTV"
-            android:parentActivityName=".MainActivity">
+        android:theme="@style/AppTheme"
+        android:name=".Room.MyApp">
+        <meta-data android:name="DATABASE" android:value="catalog.db"/>
+        <meta-data android:name="VERSION" android:value="2.1"/>
+        <meta-data android:name="QUERY_LOG" android:value="true"/>
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.example.submission1dicoding"/>
+
+        <activity android:name=".fragment.FavTVFragment"></activity>
+        <activity android:name=".fragment.FavMovieFragment" />
+        <activity android:name=".view.FavoriteActivity" />
+        <activity
+            android:name=".view.DetailTVActivity"
+            android:parentActivityName=".view.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.submission1dicoding.MainActivity" />
+                android:value="com.example.submission1dicoding.view.MainActivity" />
         </activity>
         <activity
-            android:name=".DetailMovies"
-            android:parentActivityName=".MainActivity">
+            android:name=".view.DetailMoviesActivity"
+            android:parentActivityName=".view.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.submission1dicoding.MainActivity" />
+                android:value="com.example.submission1dicoding.view.MainActivity" />
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
