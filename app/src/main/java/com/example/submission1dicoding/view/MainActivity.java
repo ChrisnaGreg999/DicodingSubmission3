@@ -50,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
         } else if (item.getItemId() == R.id.fav) {
             Intent i = new Intent(this, FavoriteActivity.class);
             startActivity(i);
+        } else if (item.getItemId() == R.id.search) {
+            Intent i = new Intent(this, SearchActivity.class);
+            startActivity(i);
+        } else if (item.getItemId() == R.id.notif) {
+            Intent i = new Intent(this, NotificationActivity.class);
+            startActivity(i);
         }
         return super.onOptionsItemSelected(item);
     }

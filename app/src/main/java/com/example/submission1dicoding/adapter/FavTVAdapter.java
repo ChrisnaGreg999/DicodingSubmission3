@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.submission1dicoding.R;
 import com.example.submission1dicoding.model.TVShow;
-import com.example.submission1dicoding.view.DetailMoviesActivity;
+import com.example.submission1dicoding.view.DetailTVActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,8 +107,8 @@ public class FavTVAdapter extends RecyclerView.Adapter<FavTVAdapter.ListViewHold
                                     break;
 
                                 case R.id.detail:
-                                    Intent i = new Intent(context.getApplicationContext(), DetailMoviesActivity.class);
-                                    i.putExtra(DetailMoviesActivity.EXTRA_MOVIES, tvShow);
+                                    Intent i = new Intent(context.getApplicationContext(), DetailTVActivity.class);
+                                    i.putExtra(DetailTVActivity.EXTRA_TV, tvShow);
                                     context.startActivity(i);
                             }
                             return false;

@@ -17,10 +17,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.submission1dicoding.R;
-import com.example.submission1dicoding.ViewModel.MainViewModel;
 import com.example.submission1dicoding.adapter.MoviesAdapter;
 import com.example.submission1dicoding.model.Movies;
 import com.example.submission1dicoding.view.DetailMoviesActivity;
+import com.example.submission1dicoding.viewmodel.MainViewModel;
 
 import java.util.ArrayList;
 

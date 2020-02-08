@@ -1,5 +1,7 @@
 package com.example.submission1dicoding.model;
 
+import android.database.Cursor;
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -21,4 +23,10 @@ public interface TVShowDAO {
 
     @Delete
     void deleteMovies(TVShow... tvshow);
+
+    @Query("SELECT * FROM tvshow WHERE id LIKE :id")
+    Cursor queryByIdProvider(String id);
+
+    @Query("SELECT * FROM tvshow ORDER BY :id ASC")
+    Cursor queryProvider(String id);
 }

@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">Submission 4 Dicoding</string>
+    <string name="app_name">Submission FINAL Dicoding</string>
     <string name="name_movies">Film Name</string>
     <string name="lorem">Film Description</string>
     <string name="bahasa">id</string>
+    <string name="search">Judul Serial TV / Film</string>
+    <string name="notFound">Data tidak ditemukan</string>
+    <string name="empty">Tidak boleh kosong</string>
 
     <string name="date">Tanggal Rilis</string>
     <string name="desc">Deskripsi</string>
@@ -15,13 +18,24 @@
     <string name="imgContent">Poster Film atau TV Serial</string>
 
     <string name="change_language_settings">Ubah Pengaturan Bahasa</string>
+    <string name="search_settings">Cari</string>
+    <string name="fav_settings">Daftar Favorit</string>
+    <string name="notif_settings">Pengaturan Notifikasi</string>
+
+    <string name="reminderD">Pengingat Harian</string>
+    <string name="reminderR">Pengingat Rilis</string>
+
+    <string name="daily_notif_content">Halo, Ayo cek Film dan TV Serial terbaru</string>
 
     <string name="fav_success">Masuk dalam daftar favorit</string>
     <string name="fav_added">Film ini sudah dimasukkan</string>
     <string name="fav_remove">Film ini telah dihapus</string>
 
     <string name="titleBarFav">Daftar Favorit</string>
-    <string name="titleBarDet">Detil Katalog</string>
+
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

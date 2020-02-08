@@ -1,5 +1,6 @@
 package com.example.submission1dicoding.model;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -20,11 +21,23 @@ public class Movies implements Parcelable {
     @ColumnInfo(name = "poster_path")
     String poster_path;
 
+    public static final String AUTHORITY = "com.example.submission1dicoding";
+    private static final String SCHEME = "content";
+    public static final String TABLE_NAME = "movies";
 
-    public Movies(String original_title, String overview, String release_date) {
+    public static final Uri CONTENT_URI = new Uri.Builder().scheme(SCHEME)
+            .authority(AUTHORITY)
+            .appendPath(TABLE_NAME)
+            .build();
+
+    public Movies() {
+    }
+
+    public Movies(String original_title, String overview, String release_date, String poster_path) {
         this.original_title = original_title;
         this.overview = overview;
         this.release_date = release_date;
+        this.poster_path = poster_path;
     }
 
     public int getId() {

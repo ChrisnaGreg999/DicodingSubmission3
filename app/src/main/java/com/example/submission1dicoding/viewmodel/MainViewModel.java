@@ -1,4 +1,4 @@
-package com.example.submission1dicoding.ViewModel;
+package com.example.submission1dicoding.viewmodel;
 
 import android.util.Log;
 
@@ -28,7 +28,7 @@ public class MainViewModel extends ViewModel {
         result.enqueue(new Callback<ResultMovies>() {
             @Override
             public void onResponse(Call<ResultMovies> call, Response<ResultMovies> response) {
-                ArrayList<Movies> listMovies = new ArrayList<>();
+                ArrayList<Movies> listMovies;
                 listMovies = response.body().getResults();
                 listMutableLiveDataMovies.postValue(listMovies);
             }
@@ -50,7 +50,7 @@ public class MainViewModel extends ViewModel {
         result.enqueue(new Callback<ResultTV>() {
             @Override
             public void onResponse(Call<ResultTV> call, Response<ResultTV> response) {
-                ArrayList<TVShow> listTV = new ArrayList<>();
+                ArrayList<TVShow> listTV;
                 listTV = response.body().getResults();
                 listMutableLiveDataTV.postValue(listTV);
             }

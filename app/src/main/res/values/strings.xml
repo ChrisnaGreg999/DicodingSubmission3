@@ -3,6 +3,9 @@
     <string name="name_movies">Film Name</string>
     <string name="lorem">Film Description</string>
     <string name="bahasa">en-US</string>
+    <string name="search">Movie / TV Show Title</string>
+    <string name="notFound">Data not found</string>
+    <string name="empty">Cannot be empty</string>
 
     <string name="date">Release Date</string>
     <string name="desc">Description</string>
@@ -15,13 +18,23 @@
     <string name="tab_text_2">TV Shows</string>
 
     <string name="change_language_settings">Change Language Setting</string>
+    <string name="search_settings">Search</string>
+    <string name="fav_settings">Favorite List</string>
+    <string name="notif_settings">Notification Setting</string>
+
+    <string name="daily_notif_content">Hi, lets checkout new Movies and TV Shows</string>
+
+
+    <string name="reminderD">Daily Reminder</string>
+    <string name="reminderR">Release Reminder</string>
 
     <string name="fav_success">Added to Favorite List</string>
     <string name="fav_added">This Movie has been added</string>
     <string name="fav_remove">This Movie has been removed</string>
 
     <string name="titleBarFav">Favorite List</string>
-    <string name="titleBarDet">Catalog Detail</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 
